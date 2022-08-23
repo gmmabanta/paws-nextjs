@@ -1,0 +1,30 @@
+/* Landing Page styles */
+.logoContainer {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.textSubheader {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.buttonSpacer {
+    margin-left: 15%;
+    margin-right: 15%;
+    max-width: 450px;
+    align-items: center;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.spacers{
+    margin-top: 10%;
+}
+
+.topSpacer {
+    margin-top: 15vh;
+}
