@@ -26,7 +26,7 @@ export default function ScanInput() {
                 }
                 //this is facing mode : "environment " it will open backcamera of the smartphone and if not found will 
                 // open the front camera
-                constraints={{ facingMode:  "user"  }}
+                constraints={{ facingMode:  "environment"  }}
                 style={{ height: "100%" }}
             />
             <p>{data}</p>
