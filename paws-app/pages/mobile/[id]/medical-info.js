@@ -1,11 +1,9 @@
 import { Center, Text, Container, Button } from '@mantine/core';
-import Navbar from '../../../components/navbar';
 import Link from 'next/link';
 
 export default function MedicalInfo() {
   return (
     <>
-        <Navbar title={'Medical Info'}/>
         <Center>
           <Text>
             Hi! My name is

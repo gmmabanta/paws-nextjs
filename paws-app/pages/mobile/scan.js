@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 import { Center, Text } from '@mantine/core';
-import Navbar from '../../components/navbar';
+import Link from 'next/link';
+import { setNavbarTitle } from '../../components/shared/reducers/navbar';
+import { useDispatch } from 'react-redux';
+
 import styles from '../../styles/Mobile.module.css';
 
+
 export default function ScanInput() {
+    const dispatch = useDispatch();
     const [data, setData] = useState("No result");
+
+    useEffect(()=>{
+        dispatch(setNavbarTitle('QR Scan'));
+    });
 
     return (
         <>
-            <Navbar title={'QR Scan'}/>
             <Center className={styles.topSpacer}>
                 <Text weight={500}>Position QR code within the frame</Text>
             </Center>
@@ -30,6 +38,7 @@ export default function ScanInput() {
                 style={{ height: "100%" }}
             />
             <p>{data}</p>
+            <Text >Go to <Link href="/mobile/222111">Animal Page</Link></Text>
         </>
     );
 }

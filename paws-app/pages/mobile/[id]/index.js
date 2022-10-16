@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Button, Container, Text, Center, TextInput, Group, UnstyledButton } from '@mantine/core';
-import Navbar from '../../../components/navbar';
-import { PhotoOff, ChevronLeft, ChevronRight } from 'tabler-icons-react';
+import { Button, Container, Text, Center, } from '@mantine/core';
 import styles from '../../../styles/Mobile.module.css';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { setNavbarTitle } from '../../../components/shared/reducers/navbar';
 
 export default function PetInformation() {
+    const dispatch = useDispatch();
+    const router = useRouter();
 
   return (
     <>
-        <Navbar title={'Information'}/>
         <div className={styles.textSubheader}>
             <Text>
                 Hello! My name is
@@ -23,7 +23,7 @@ export default function PetInformation() {
             </Container>
             {/* Button groups */}
             <Center>
-                <Link href={'/mobile/23342/rescue-story'}>
+                <Link href={`/mobile/${router.query.id}/rescue-story`}>
                 <Button 
                     radius='xl' 
                     size='md' 
@@ -31,13 +31,13 @@ export default function PetInformation() {
                     style={{backgroundColor: '#458642', borderRadius: 30, width: '100%', maxWidth: '500px' }}
                     m={10}
                     onClick={() =>{
-
+                        dispatch(setNavbarTitle('Rescue Story'));
                     }}
                 >View Rescue Story</Button>
                 </Link>
             </Center>
             <Center>
-                    <Link href={'/mobile/23342/medical-info'}>
+                    <Link href={`/mobile/${router.query.id}/medical-info`}>
                     <Button 
                         radius='xl' 
                         size='md' 
@@ -45,7 +45,7 @@ export default function PetInformation() {
                         style={{backgroundColor: '#458642', borderRadius: 30, width: '100%', maxWidth: '500px' }}
                         m={10}
                         onClick={() =>{
-
+                            dispatch(setNavbarTitle('Medical Info'));
                         }}
                     >View Medical History</Button>
                     </Link>
@@ -59,7 +59,7 @@ export default function PetInformation() {
                     style={{backgroundColor: 'red', borderRadius: 30, width: '100%', maxWidth: '500px' }}
                     m={10}
                     onClick={() =>{
-
+                        dispatch(setNavbarTitle('Login'));
                     }}
                 >I am a Veterinarian</Button>
                 </Link>

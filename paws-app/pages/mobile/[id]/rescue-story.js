@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import Image from 'next/image';
-import { Button, Container, Text, Center, TextInput, Group, UnstyledButton } from '@mantine/core';
-import Navbar from '../../../components/navbar';
+import {  Container, Text, Center, TextInput, Group, UnstyledButton } from '@mantine/core';
 import { PhotoOff, ChevronLeft, ChevronRight } from 'tabler-icons-react';
 import styles from '../../../styles/Mobile.module.css';
 
@@ -9,7 +6,6 @@ export default function RescueStory() {
 
   return (
     <>
-        <Navbar title={'Rescue Story'}/>
         <div className={styles.textSubheader}>
             {/* Photo of pet here */}
             <Container style={{backgroundColor: '#E4F2E4', borderRadius: 30, width: '100%', maxWidth: '500px' }}>
