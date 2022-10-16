@@ -2,16 +2,20 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 import { Button, Container, Text, Center, TextInput } from '@mantine/core';
-import Navbar from '../../components/navbar';
 import styles from '../../styles/Mobile.module.css';
+import { useDispatch } from 'react-redux';
+import { setNavbarTitle } from '../../components/shared/reducers/navbar';
+import { useRouter } from 'next/router';
 
 export default function Login() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   return (
     <>
-      <Navbar title={'Login'}/>
       <Center className={styles.topSpacer}>
         <Text weight={500}>Enter your credentials</Text>
       </Center>
@@ -52,7 +56,7 @@ export default function Login() {
             onChange={(event) => setPassword(event.currentTarget.value)}
           />
           <Center>
-            <Link href={'/mobile/23342/rescue-story'}>
+            <Link href={'/mobile/222222'}>
               <Button 
                 radius='xl' 
                 size='md' 
@@ -60,7 +64,7 @@ export default function Login() {
                 style={{ backgroundColor: '#458642'}} 
                 m={10}
                 onClick={() =>{
-
+                  dispatch(setNavbarTitle("Information"));
                 }}
               >Login</Button>
             </Link>
