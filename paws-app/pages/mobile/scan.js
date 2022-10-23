@@ -12,9 +12,9 @@ export default function ScanInput() {
     const dispatch = useDispatch();
     const [data, setData] = useState("No result");
 
-    useEffect(()=>{
-        dispatch(setNavbarTitle('QR Scan'));
-    });
+    // useEffect(()=> {
+    //     dispatch(setNavbarTitle('Information'));
+    // });
 
     return (
         <>
@@ -38,7 +38,12 @@ export default function ScanInput() {
                 style={{ height: "100%" }}
             />
             <p>{data}</p>
-            <Text >Go to <Link href="/mobile/222111">Animal Page</Link></Text>
+            <Text onClick={()=> {dispatch(setNavbarTitle('Information'))}}>Go to
+                <Link 
+                    href="/mobile/a5c3ae0c-c71f-4a63-9b12-5e07ab0a2696"
+                > Animal Page
+                </Link>
+            </Text>
         </>
     );
 }
