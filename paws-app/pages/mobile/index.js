@@ -27,7 +27,7 @@ export default function MobileLandingPage() {
         </div>
         <Center>
             <div className={`${styles.buttonSpacer}`}>
-                <Link href='/mobile/login'>
+                <Link href='/mobile/scan'>
                     <Button 
                         radius='xl' 
                         size='lg' 
@@ -35,9 +35,9 @@ export default function MobileLandingPage() {
                         uppercase 
                         style={{ backgroundColor: '#458642'}}
                         onClick={() =>{
-                            dispatch(setNavbarTitle('Login'))
+                            dispatch(setNavbarTitle('QR Scan'))
                         }}
-                    >Login</Button>
+                    >Scan Now</Button>
                 </Link>
             </div>
         </Center>

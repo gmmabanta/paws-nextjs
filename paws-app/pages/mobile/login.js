@@ -56,7 +56,7 @@ export default function Login() {
             onChange={(event) => setPassword(event.currentTarget.value)}
           />
           <Center>
-            <Link href={'/mobile/222222'}>
+            <Link href={`/mobile/a5c3ae0c-c71f-4a63-9b12-5e07ab0a2696`}>
               <Button 
                 radius='xl' 
                 size='md' 
