@@ -11,6 +11,29 @@ export default function PetInformation({ animal }) {
     const dispatch = useDispatch();
     const router = useRouter();
 
+    function formatDateInput(date) {
+        var date_components = date.split("/");
+        var day = date_components[0];
+        var month = date_components[1];
+        var year = date_components[2];
+        return new Date(year, month - 1, day);
+    }
+
+    function formatBirthdate (birthdate)  {
+        if (birthdate) {
+            const date = formatDateInput(birthdate)
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); // @TODO: check if locale is correct
+        }
+    }
+
+    function computeAge (birthdate) {
+        if (birthdate) {
+            const date = formatDateInput(birthdate);
+            const year = new Date().getFullYear() - date.getFullYear();
+            return year;
+        }
+    }
+
     return (
         <>
             <div className={styles.textSubheader}>
@@ -24,11 +47,11 @@ export default function PetInformation({ animal }) {
                 <Container style={{ backgroundColor: '#E4F2E4', color: 'black', borderRadius: 30, width: '100%', maxWidth: '500px', gap: '20px', display: 'grid' }} p={'20px'} mb={'20px'}>
                     <Box>
                         <Text weight={400} size='xl' align='center'>Age</Text>
-                        <Text weight={700} size='xl' align='center'>{animal.birthdate || 'N/A'}</Text>
+                        <Text weight={700} size='xl' align='center'>{computeAge(animal.birthdate) || 'N/A'}</Text>
                     </Box>
                     <Box>
                         <Text weight={400} size='xl' align='center'>Birthdate</Text>
-                        <Text weight={700} size='xl' align='center'>{animal.birthdate || 'N/A'}</Text>
+                        <Text weight={700} size='xl' align='center'>{formatBirthdate(animal.birthdate) || 'N/A'}</Text>
                     </Box>
                     <Box>
                         <Text weight={400} size='xl' align='center'>Weight</Text>
@@ -88,13 +111,11 @@ export default function PetInformation({ animal }) {
 }
 
 export const getServerSideProps = async (req, res) => {
-    // console.log(req.query);
     const { data: animal, errorAnimal } = await supabase
         .from('animal')
         .select('breed_id, breed(breed), name, birthdate, initial_weight')
         .filter('uuid', 'eq', req.query.id); // this uuid will be given from qr code
 
-    // console.log('item', animal);
     return {
         props: {
             animal: animal[0] || [],
