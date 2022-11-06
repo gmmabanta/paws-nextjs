@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import { Center, Button, Text, Title } from '@mantine/core';
 import styles from '../../styles/Mobile.module.css';
-import { useDispatch } from 'react-redux';
-import { setNavbarTitle } from '../../components/shared/reducers/navbar';
+// import { useDispatch } from 'react-redux';
+// import { setNavbarTitle } from '../../components/shared/reducers/navbar';
 
 export default function MobileLandingPage() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     return (
     <>
         <div className={`${styles.topSpacer}`}>
@@ -35,7 +35,7 @@ export default function MobileLandingPage() {
                         uppercase 
                         style={{ backgroundColor: '#458642'}}
                         onClick={() =>{
-                            dispatch(setNavbarTitle('QR Scan'))
+                            // dispatch(setNavbarTitle('QR Scan'))
                         }}
                     >Scan Now</Button>
                 </Link>
