@@ -5,7 +5,7 @@ export default function Layout ({children}) {
     <>
       <Navbar />
       <main>
-        <Container my={20}>
+        <Container my={30}>
           {children}
         </Container>
       </main>

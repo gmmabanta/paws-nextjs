@@ -39,7 +39,7 @@ export default function ButtonGroup() {
             radius='xl' 
             size='md' 
             uppercase 
-            style={{backgroundColor: 'red', borderRadius: 30, width: '100%', maxWidth: '500px' }}
+            style={{backgroundColor: '#FF999C', borderRadius: 30, width: '100%', maxWidth: '500px' }}
             m={10}
             onClick={() =>{
             }}

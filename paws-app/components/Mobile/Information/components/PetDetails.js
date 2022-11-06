@@ -25,7 +25,14 @@ export default function PetDetails({ animal }) {
   }
 
   function fullGender (sex) {
-    return sex === 'F' ? 'Female' : 'Male'; 
+    switch (sex) {
+      case 'F':
+        return 'Female';
+      case 'M':
+        return 'Male';
+      default:
+        return 'N/A';
+    }
   }
 
   return (
@@ -35,12 +42,12 @@ export default function PetDetails({ animal }) {
         <Text weight={700} size='xl' align='center'>{computeAge(animal.birthdate) || 'N/A'}</Text>
       </Box>
       <Box>
-        <Text weight={400} size='xl' align='center'>Birthdate</Text>
-        <Text weight={700} size='xl' align='center'>{formatBirthdate(animal.birthdate) || 'N/A'}</Text>
+        <Text weight={400} size='xl' align='center'>Gender</Text>
+        <Text weight={700} size='xl' align='center'>{fullGender(animal.sex)}</Text>
       </Box>
       <Box>
-        <Text weight={400} size='xl' align='center'>Gender</Text>
-        <Text weight={700} size='xl' align='center'>{fullGender(animal.sex) || 'N/A'}</Text>
+        <Text weight={400} size='xl' align='center'>Birthday</Text>
+        <Text weight={700} size='xl' align='center'>{formatBirthdate(animal.birthdate) || 'N/A'}</Text>
       </Box>
       <Box>
         <Text weight={400} size='xl' align='center'>Weight</Text>
