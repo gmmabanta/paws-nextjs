@@ -3,6 +3,7 @@ import {
   UnstyledButton,
   Text,
   Title,
+  Center
 } from '@mantine/core';
 import { ChevronLeft } from 'tabler-icons-react';
 import { useRouter } from 'next/router';
@@ -76,20 +77,22 @@ export default function Navbar(props) {
   return (
     <>
       { showNavbar && 
-        <Header height={60} p='xs' style={{ backgroundColor: '#458642' }}>
-            <UnstyledButton sx={{display: 'flex'}} onClick={() => router.back()}>
-              <ChevronLeft size={40} strokeWidth={1.5} color={'white'} />
+        <Header height={60} p='xs' style={{ backgroundColor: '#458642', position: 'sticky' }}>
+          <UnstyledButton sx={{display: 'flex'}} onClick={() => router.back()}>
+            <ChevronLeft size={40} strokeWidth={1.5} color={'white'} />
+            <Center>
               <Title order={3}>
-                <Text
-                  transform='uppercase'
-                  weight={700}
-                  align='center'
-                  color={'white'}
-                >
-                  {pageTitle}
-                </Text>
-              </Title>
-            </UnstyledButton>
+              <Text
+                transform='uppercase'
+                weight={700}
+                align='center'
+                color={'white'}
+              >
+                {pageTitle}
+              </Text>
+            </Title>
+            </Center>
+          </UnstyledButton>
         </Header>
       }
     </>

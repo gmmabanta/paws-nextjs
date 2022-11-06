@@ -1,6 +1,6 @@
 import '../styles/globals.css';
-import { store } from '../store/store';
-import { Provider } from 'react-redux';
+// import { store } from '../store/store';
+// import { Provider } from 'react-redux';
 import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
