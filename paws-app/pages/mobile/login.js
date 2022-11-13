@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 import { Button, Container, Text, Center, TextInput } from '@mantine/core';
 import styles from '../../styles/Mobile.module.css';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { setNavbarTitle } from '../../components/shared/reducers/navbar';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 export default function Login() {
-  const router = useRouter();
-  const dispatch = useDispatch();
+  // const router = useRouter();
+  // const dispatch = useDispatch();
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
