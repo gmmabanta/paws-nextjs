@@ -1,65 +1,27 @@
+import { supabase } from '../../../utils/supabase';
 import { Center, Text, Container } from '@mantine/core';
+import MedicalHistory from '../../../components/Mobile/MedicalHistory';
 
-export default function MedicalHistory() {
-  return (
-    <>
-        <Center>
-          <Container style={{backgroundColor: '#E4F2E4', borderRadius: 30, width: '100%', maxWidth: '500px' }} py={30} m={15}>
-            <Center>
-                <Text weight={700} transform='uppercase'>
-                    SPAY  
-                </Text>
-            </Center>
-            <Center>
-                <Text>
-                    Jan 24, 2022
-                </Text>
-            </Center>
-          </Container>
-        </Center>
-        <Center>
-          <Container style={{backgroundColor: '#E4F2E4', borderRadius: 30, width: '100%', maxWidth: '500px' }} py={30} m={15}>
-            <Center>
-                <Text weight={700} transform='uppercase'>
-                    Deworming  
-                </Text>
-            </Center>
-            <Center>
-                <Text>
-                    Jan 24, 2022
-                </Text>
-            </Center>
-          </Container>
-        </Center>
-        <Center>
-          <Container style={{backgroundColor: '#E4F2E4', borderRadius: 30, width: '100%', maxWidth: '500px' }} py={30} m={15}>
-            <Center>
-                <Text weight={700} transform='uppercase'>
-                    Procedure C  
-                </Text>
-            </Center>
-            <Center>
-                <Text>
-                    Jan 24, 2022
-                </Text>
-            </Center>
-          </Container>
-        </Center>
-        <Center>
-          <Container style={{backgroundColor: '#E4F2E4', borderRadius: 30, width: '100%', maxWidth: '500px' }} py={30} m={15}>
-            <Center>
-                <Text weight={700} transform='uppercase'>
-                    Procedure D  
-                </Text>
-            </Center>
-            <Center>
-                <Text>
-                    Jan 24, 2022
-                </Text>
-            </Center>
-          </Container>
-        </Center>
-       
-    </>
-  );
+export default function MedicalHistoryPage({med_history}) {
+
+  console.log(med_history)
+  return (<MedicalHistory />);
+}
+
+export const getServerSideProps = async (req, res) => {
+  let { data: med_hist, error } = await supabase
+  .from('med_hist')
+  .select('animal_id')
+    //.eq('animal_id', req.query.id);
+    //.eq('animal_id', req.query.id)
+    //.filter('animal_id', 'eq', req.query.id); // this uuid will be given from qr code
+
+  console.log(med_hist);
+  console.log(error);
+
+  return {
+    props: {
+      med_history: med_hist,
+    }
+  }
 }

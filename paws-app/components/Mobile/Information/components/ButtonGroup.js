@@ -21,7 +21,7 @@ export default function ButtonGroup() {
         </Link>
       </Center>
       <Center>
-        <Link href={`/mobile/${router.query.id}/medical-info`}>
+        <Link href={`/mobile/${router.query.id}/medical-history`}>
         <Button 
             radius='xl' 
             size='md' 
